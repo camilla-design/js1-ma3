@@ -39,8 +39,8 @@ fetch("https://api.rawg.io/api/games?genres=sports")
 // Replace the word cats with the word giraffes in the following sentence:
 
 // These cats are outrageous.
-
-const animalReplace = animal.replace(/-/g, " ").replace("cate", "giraffes");
+const animalReplace1 = "These cats are outrageous";
+const animalReplace2 = animalReplace1.replace("cat", "giraffes");
 
 
 
