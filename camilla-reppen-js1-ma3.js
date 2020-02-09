@@ -23,7 +23,7 @@ fetch("https://api.rawg.io/api/games?genres=sports")
         sportsGame(json);
     })
     .catch(function(error) {
-        error.html(error);
+        error(error.html);
     })
 
     function sportsGame(json) {
@@ -43,7 +43,6 @@ fetch("https://api.rawg.io/api/games?genres=sports")
 const animalReplace1 = "These cats are outrageous";
 const animalReplace2 = animalReplace1.replace("cat", "giraffes");
 
-*/
 
 // Question 4
 //Given the URL below, write code that checks if there is a userId parameter in the query string.
@@ -89,15 +88,48 @@ container.removeChild(buttonRemove);
 
 //Add the new item as the second item in the ul below (add it after Cows).
 
-function createLi(animals) {
-    console.dir(animals);
+const container = document.querySelector(".cows")
+const listItem = document.createElement("li");
 
-    const listItem = document.querySelector("animals");
 
-    const birdParrots = document.createElement("li");
-    birdParrots.className = "parrots";
-    birdParrots.innerText = "parrots";
-    cows.appendChild(birdParrots);
-}
+listItem.className = "parrots";
 
-*/
+const liContent = document.createTextNode("Parrots");
+listItem.appendChild(liContent);
+console.log(listItem);
+container.appendChild(listItem);
+
+
+// Question 7
+
+//Make a call to the URL below and pass the JSON it returns to a function.
+
+//Inside that function select the div from the HTML below and assign the rating property from the JSON object as it's text value.
+
+//In the catch method, log the error that may be returned.
+
+const baseUrl = "https://api.rawg.io/api/games/3801";
+const gamesUrl = `${baseUrl}games/`;
+const detailsUrl = `${gamesUrl}${id}`;
+
+fetch(detailsUrl)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(json) {
+        createDetails(json);
+    })
+    .catch(function(error) {
+        error(error);
+    })
+
+    function createDetails(json) {
+        
+        const games = json.results;
+
+        for (let i =0; i < games.length; i++) {
+            console.log(games[i].rating);
+        }
+    }
+    
+    */
