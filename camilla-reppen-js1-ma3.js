@@ -54,24 +54,22 @@ const animalReplace2 = animalReplace1.replace("cat", "giraffes");
 //If there is a userID parameter and its value is 10 or greater, redirect to second.html.
 /*
 
-
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 
 let id;
 
-if (params.has("id")) {
-    id = params.get("id")
+
+if (params.has("userId")) {
+id = params.get("userId");
+if (id < 10) {
+document.location.href = "first.html";
 } else {
-    document.location.href = "/";
+document.location.href = "second.html";
 }
-
-const detailsUrl = `${baseUrl}${id}`;
-
-const baseUrl = "https://my.site.com?userId=7";
-const thirdHTMLUrl = "http://127.0.0.1:5500/third.html";
-const firstHTMLUrl = "http://127.0.0.1:5500/first.html";
-const secondHTMLUrl = "http://127.0.0.1:5500/second.html";
+} else {
+document.location.href = "third.html";
+}
 
 /*
 // Question 5
